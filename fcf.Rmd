@@ -98,4 +98,4 @@ dfPvs <- cbind(dfFcf[c(1:3, 10)], PresentValue = discCfs)
 dfPvs
 ```
 
-The netto contante waard is gelijk aan de som van de laatste kolom: `r round(sum(dfPvs$PresentValue),0)`.
+The netto contante waarde is gelijk aan de som van de laatste kolom: `r round(sum(dfPvs$PresentValue),0)`.

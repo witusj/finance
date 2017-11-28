@@ -1,0 +1,54 @@
+---
+title: "Claims"
+output: html_notebook
+---
+
+```{r message=FALSE, warning=FALSE, include=FALSE, paged.print=TRUE}
+options(scipen = 999)
+```
+
+Hofstring NV wil 1,8 mln EUR aan nieuw eigen vermogen aantrekken via een claimemissie. Bij inlevering van een vast aantal claims en 3,60 EUR bijbetaling, ontvangt een belegger 1 nieuw aandeel. Momenteel zijn er 5 mln aandelen in omloop. Verwacht wordt dat de beurskoers na de emissie 7,50 EUR per aandeel zal bedragen.
+
+*Bereken de theoretische waarde van 1 claim.*
+
+Eerst noteren we de gegeven variabelen.
+
+```{r}
+v <- 1800000
+u <- 3.60
+a <- 1
+m <- 5000000
+p <- 7.50
+```
+
+Het aantal nieuwe aandlen dat zal worden uitgeven is het kapitaal dat moetHet aantal claims Het aantal nieuwe aandelen ($n$) dat moet worden uitgegeven, kan worden berekend door het kapitaal ($v$) dat moet worden opgehaald te delen door de uitgiftekoers ($u$):
+
+$$n = \frac{v}{u}$$
+
+```{r}
+n <- v/u
+```
+
+= `r n`
+```{r}
+
+```
+
+Het aantal claims ($x$) dat per nieuw aandeel moet worden ingeleverd, is:
+
+$$x = \frac{m}{n}$$
+```{r}
+x <- m/n
+```
+
+Als een belegger $x= `r x`$ claims inlevert en `r format(u, digits = 2, nsmall=2)` EUR bijbetaalt, ontvangt hij een nieuw aandeel dat `r format(p, digits = 2, nsmall=2)` EUR waard is. Laat de claims een theoretische waarde $c$ hebben; dan moet volgende gelijkheid gelden:
+
+$$`r x` c + `r u` = `r p`$$
+
+Als we oplossen voor $c$, is de theoretische waarde van één claim:
+
+```{r}
+c <- (p - u) / x
+```
+
+$c = `r c`$ EUR.

@@ -3,7 +3,7 @@ title: "Free Cash Flows en de netto contante waarde"
 output: html_notebook
 ---
 
-```{r}
+```{r include=FALSE}
 # Disable scientific notation
 options(scipen=999)
 library(knitr)

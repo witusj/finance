@@ -175,8 +175,10 @@ $(document).ready(function () {
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-text-begin -->
-<p>Hofstring NV wil 1,8 mln EUR aan nieuw eigen vermogen aantrekken via een claimemissie. Bij inlevering van een vast aantal claims en 3,60 EUR bijbetaling, ontvangt een belegger 1 nieuw aandeel. Momenteel zijn er 5 mln aandelen in omloop. Verwacht wordt dat de beurskoers na de emissie 7,50 EUR per aandeel zal bedragen.</p>
-<p><em>Bereken de theoretische waarde van 1 claim.</em></p>
+Hofstring NV wil 1,8 mln EUR (<span class="math inline">\(v\)</span>) aan nieuw eigen vermogen aantrekken via een claimemissie. Bij inlevering van een vast aantal claims en 3,60 EUR (<span class="math inline">\(u\)</span>) bijbetaling, ontvangt een belegger 1 (<span class="math inline">\(a\)</span>) nieuw aandeel. Momenteel zijn er 5 mln aandelen (<span class="math inline">\(m\)</span>) in omloop. Verwacht wordt dat de beurskoers na de emissie 7,50 EUR per aandeel (<span class="math inline">\(p\)</span>) zal bedragen.
+<hr>
+<em>Bereken de theoretische waarde van 1 claim.</em>
+<hr>
 <p>Eerst noteren we de gegeven variabelen.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
@@ -189,7 +191,7 @@ p &lt;- 7.50</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>Het aantal nieuwe aandlen dat zal worden uitgeven is het kapitaal dat moetHet aantal claims Het aantal nieuwe aandelen (<span class="math inline">\(n\)</span>) dat moet worden uitgegeven, kan worden berekend door het kapitaal (<span class="math inline">\(v\)</span>) dat moet worden opgehaald te delen door de uitgiftekoers (<span class="math inline">\(u\)</span>):</p>
+<p>Het aantal nieuwe aandelen dat zal worden uitgeven (<span class="math inline">\(n\)</span>), kan worden berekend door het kapitaal (<span class="math inline">\(v\)</span>) dat moet worden opgehaald te delen door de uitgiftekoers (<span class="math inline">\(u\)</span>):</p>
 <p><span class="math display">\[n = \frac{v}{u}\]</span></p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
@@ -225,7 +227,7 @@ p &lt;- 7.50</code></pre>
 <p><span class="math inline">\(c = 0.39\)</span> EUR.</p>
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiQ2xhaW1zIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgpgYGB7ciBtZXNzYWdlPUZBTFNFLCB3YXJuaW5nPUZBTFNFLCBpbmNsdWRlPUZBTFNFLCBwYWdlZC5wcmludD1UUlVFfQpvcHRpb25zKHNjaXBlbiA9IDk5OSkKYGBgCgpIb2ZzdHJpbmcgTlYgd2lsIDEsOCBtbG4gRVVSIGFhbiBuaWV1dyBlaWdlbiB2ZXJtb2dlbiBhYW50cmVra2VuIHZpYSBlZW4gY2xhaW1lbWlzc2llLiBCaWogaW5sZXZlcmluZyB2YW4gZWVuIHZhc3QgYWFudGFsIGNsYWltcyBlbiAzLDYwIEVVUiBiaWpiZXRhbGluZywgb250dmFuZ3QgZWVuIGJlbGVnZ2VyIDEgbmlldXcgYWFuZGVlbC4gTW9tZW50ZWVsIHppam4gZXIgNSBtbG4gYWFuZGVsZW4gaW4gb21sb29wLiBWZXJ3YWNodCB3b3JkdCBkYXQgZGUgYmV1cnNrb2VycyBuYSBkZSBlbWlzc2llIDcsNTAgRVVSIHBlciBhYW5kZWVsIHphbCBiZWRyYWdlbi4KCipCZXJla2VuIGRlIHRoZW9yZXRpc2NoZSB3YWFyZGUgdmFuIDEgY2xhaW0uKgoKRWVyc3Qgbm90ZXJlbiB3ZSBkZSBnZWdldmVuIHZhcmlhYmVsZW4uCgpgYGB7cn0KdiA8LSAxODAwMDAwCnUgPC0gMy42MAphIDwtIDEKbSA8LSA1MDAwMDAwCnAgPC0gNy41MApgYGAKCkhldCBhYW50YWwgbmlldXdlIGFhbmRsZW4gZGF0IHphbCB3b3JkZW4gdWl0Z2V2ZW4gaXMgaGV0IGthcGl0YWFsIGRhdCBtb2V0SGV0IGFhbnRhbCBjbGFpbXMgSGV0IGFhbnRhbCBuaWV1d2UgYWFuZGVsZW4gKCRuJCkgZGF0IG1vZXQgd29yZGVuIHVpdGdlZ2V2ZW4sIGthbiB3b3JkZW4gYmVyZWtlbmQgZG9vciBoZXQga2FwaXRhYWwgKCR2JCkgZGF0IG1vZXQgd29yZGVuIG9wZ2VoYWFsZCB0ZSBkZWxlbiBkb29yIGRlIHVpdGdpZnRla29lcnMgKCR1JCk6CgokJG4gPSBcZnJhY3t2fXt1fSQkCgpgYGB7cn0KbiA8LSB2L3UKYGBgCgo9IGByIG5gCmBgYHtyfQoKYGBgCgpIZXQgYWFudGFsIGNsYWltcyAoJHgkKSBkYXQgcGVyIG5pZXV3IGFhbmRlZWwgbW9ldCB3b3JkZW4gaW5nZWxldmVyZCwgaXM6CgokJHggPSBcZnJhY3ttfXtufSQkCmBgYHtyfQp4IDwtIG0vbgpgYGAKCkFscyBlZW4gYmVsZWdnZXIgJHg9IGByIHhgJCBjbGFpbXMgaW5sZXZlcnQgZW4gYHIgZm9ybWF0KHUsIGRpZ2l0cyA9IDIsIG5zbWFsbD0yKWAgRVVSIGJpamJldGFhbHQsIG9udHZhbmd0IGhpaiBlZW4gbmlldXcgYWFuZGVlbCBkYXQgYHIgZm9ybWF0KHAsIGRpZ2l0cyA9IDIsIG5zbWFsbD0yKWAgRVVSIHdhYXJkIGlzLiBMYWF0IGRlIGNsYWltcyBlZW4gdGhlb3JldGlzY2hlIHdhYXJkZSAkYyQgaGViYmVuOyBkYW4gbW9ldCB2b2xnZW5kZSBnZWxpamtoZWlkIGdlbGRlbjoKCiQkYHIgeGAgYyArIGByIHVgID0gYHIgcGAkJAoKQWxzIHdlIG9wbG9zc2VuIHZvb3IgJGMkLCBpcyBkZSB0aGVvcmV0aXNjaGUgd2FhcmRlIHZhbiDDqcOpbiBjbGFpbToKCmBgYHtyfQpjIDwtIChwIC0gdSkgLyB4CmBgYAoKJGMgPSBgciBjYCQgRVVSLg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiQ2xhaW1zIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgpgYGB7ciBtZXNzYWdlPUZBTFNFLCB3YXJuaW5nPUZBTFNFLCBpbmNsdWRlPUZBTFNFLCBwYWdlZC5wcmludD1UUlVFfQpvcHRpb25zKHNjaXBlbiA9IDk5OSkKYGBgCgpIb2ZzdHJpbmcgTlYgd2lsIDEsOCBtbG4gRVVSICgkdiQpIGFhbiBuaWV1dyBlaWdlbiB2ZXJtb2dlbiBhYW50cmVra2VuIHZpYSBlZW4gY2xhaW1lbWlzc2llLiBCaWogaW5sZXZlcmluZyB2YW4gZWVuIHZhc3QgYWFudGFsIGNsYWltcyBlbiAzLDYwIEVVUiAoJHUkKSBiaWpiZXRhbGluZywgb250dmFuZ3QgZWVuIGJlbGVnZ2VyIDEgKCRhJCkgbmlldXcgYWFuZGVlbC4gTW9tZW50ZWVsIHppam4gZXIgNSBtbG4gYWFuZGVsZW4gKCRtJCkgaW4gb21sb29wLiBWZXJ3YWNodCB3b3JkdCBkYXQgZGUgYmV1cnNrb2VycyBuYSBkZSBlbWlzc2llIDcsNTAgRVVSIHBlciBhYW5kZWVsICgkcCQpIHphbCBiZWRyYWdlbi4KPGhyPgoqQmVyZWtlbiBkZSB0aGVvcmV0aXNjaGUgd2FhcmRlIHZhbiAxIGNsYWltLioKPGhyPgoKRWVyc3Qgbm90ZXJlbiB3ZSBkZSBnZWdldmVuIHZhcmlhYmVsZW4uCgpgYGB7cn0KdiA8LSAxODAwMDAwCnUgPC0gMy42MAphIDwtIDEKbSA8LSA1MDAwMDAwCnAgPC0gNy41MApgYGAKCkhldCBhYW50YWwgbmlldXdlIGFhbmRlbGVuIGRhdCB6YWwgd29yZGVuIHVpdGdldmVuICgkbiQpLCBrYW4gd29yZGVuIGJlcmVrZW5kIGRvb3IgaGV0IGthcGl0YWFsICgkdiQpIGRhdCBtb2V0IHdvcmRlbiBvcGdlaGFhbGQgdGUgZGVsZW4gZG9vciBkZSB1aXRnaWZ0ZWtvZXJzICgkdSQpOgoKJCRuID0gXGZyYWN7dn17dX0kJAoKYGBge3J9Cm4gPC0gdi91CmBgYAoKPSBgciBuYApgYGB7cn0KCmBgYAoKSGV0IGFhbnRhbCBjbGFpbXMgKCR4JCkgZGF0IHBlciBuaWV1dyBhYW5kZWVsIG1vZXQgd29yZGVuIGluZ2VsZXZlcmQsIGlzOgoKJCR4ID0gXGZyYWN7bX17bn0kJApgYGB7cn0KeCA8LSBtL24KYGBgCgpBbHMgZWVuIGJlbGVnZ2VyICR4PSBgciB4YCQgY2xhaW1zIGlubGV2ZXJ0IGVuIGByIGZvcm1hdCh1LCBkaWdpdHMgPSAyLCBuc21hbGw9MilgIEVVUiBiaWpiZXRhYWx0LCBvbnR2YW5ndCBoaWogZWVuIG5pZXV3IGFhbmRlZWwgZGF0IGByIGZvcm1hdChwLCBkaWdpdHMgPSAyLCBuc21hbGw9MilgIEVVUiB3YWFyZCBpcy4gTGFhdCBkZSBjbGFpbXMgZWVuIHRoZW9yZXRpc2NoZSB3YWFyZGUgJGMkIGhlYmJlbjsgZGFuIG1vZXQgdm9sZ2VuZGUgZ2VsaWpraGVpZCBnZWxkZW46CgokJGByIHhgIGMgKyBgciB1YCA9IGByIHBgJCQKCkFscyB3ZSBvcGxvc3NlbiB2b29yICRjJCwgaXMgZGUgdGhlb3JldGlzY2hlIHdhYXJkZSB2YW4gw6nDqW4gY2xhaW06CgpgYGB7cn0KYyA8LSAocCAtIHUpIC8geApgYGAKCiRjID0gYHIgY2AkIEVVUi4=</div>
 
 
 

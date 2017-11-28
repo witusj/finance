@@ -7,9 +7,10 @@ output: html_notebook
 options(scipen = 999)
 ```
 
-Hofstring NV wil 1,8 mln EUR aan nieuw eigen vermogen aantrekken via een claimemissie. Bij inlevering van een vast aantal claims en 3,60 EUR bijbetaling, ontvangt een belegger 1 nieuw aandeel. Momenteel zijn er 5 mln aandelen in omloop. Verwacht wordt dat de beurskoers na de emissie 7,50 EUR per aandeel zal bedragen.
-
+Hofstring NV wil 1,8 mln EUR ($v$) aan nieuw eigen vermogen aantrekken via een claimemissie. Bij inlevering van een vast aantal claims en 3,60 EUR ($u$) bijbetaling, ontvangt een belegger 1 ($a$) nieuw aandeel. Momenteel zijn er 5 mln aandelen ($m$) in omloop. Verwacht wordt dat de beurskoers na de emissie 7,50 EUR per aandeel ($p$) zal bedragen.
+<hr>
 *Bereken de theoretische waarde van 1 claim.*
+<hr>
 
 Eerst noteren we de gegeven variabelen.
 
@@ -21,7 +22,7 @@ m <- 5000000
 p <- 7.50
 ```
 
-Het aantal nieuwe aandlen dat zal worden uitgeven is het kapitaal dat moetHet aantal claims Het aantal nieuwe aandelen ($n$) dat moet worden uitgegeven, kan worden berekend door het kapitaal ($v$) dat moet worden opgehaald te delen door de uitgiftekoers ($u$):
+Het aantal nieuwe aandelen dat zal worden uitgeven ($n$), kan worden berekend door het kapitaal ($v$) dat moet worden opgehaald te delen door de uitgiftekoers ($u$):
 
 $$n = \frac{v}{u}$$
 

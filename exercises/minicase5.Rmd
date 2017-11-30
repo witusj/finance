@@ -1,0 +1,70 @@
+---
+title: "Minicase college 5"
+output: html_notebook
+---
+
+## Extract tables 
+
+```{r paged.print=TRUE}
+library(tabulizer)
+library(dplyr)
+library(DT)
+
+location <- 'minicase5.pdf'
+
+# Extract the table
+out <- extract_tables(location)
+
+concate_lines <- function(table) {
+  library(dplyr)
+  
+  for(i in 3:dim(table)[1]) {
+    
+    if(table[i, 2] == "" & table[i, 3] == "") {
+       x <- table[i, 1]
+       table[i+1, 1] <- paste0(x, " " ,table[i+1, 1])
+    }
+  }
+  return(data.frame(table, stringsAsFactors = FALSE))
+}
+
+balanceSheet <- concate_lines(out[[1]])
+years <- balanceSheet[1,c(2,3)]
+colnames(balanceSheet) <- c("Item", years[1:2])
+balanceSheet <- filter(balanceSheet, `2015` != "")[-1,]
+balanceSheet[,2:3] <- sapply(2:3, function(x) gsub("\\.", "", balanceSheet[,x]))
+balanceSheet[,1] <- sapply(balanceSheet[,1], function(x) gsub("^ +", "", x))
+balanceSheet[,1] <- gsub("VLOTTENDE ACTIVA", "", balanceSheet[,1])
+balanceSheet[,1] <- gsub("VLOTTENDE PASSIVA", "", balanceSheet[,1])
+balanceSheet <- transmute(balanceSheet, Item, `2015` = as.numeric(`2015`), `2014` = as.numeric(`2014`))
+
+profAndLoss <- data.frame(out[[2]], stringsAsFactors = FALSE)[1:13,1:3]
+years <- profAndLoss[1,c(2,3)]
+colnames(profAndLoss) <- c("Item", years[1:2])
+profAndLoss <- filter(profAndLoss, `2015` != "")[-1,]
+profAndLoss[,2:3] <- sapply(2:3, function(x) gsub("\\.", "", profAndLoss[,x]))
+profAndLoss <- transmute(profAndLoss, Item, `2015` = as.numeric(`2015`), `2014` = as.numeric(`2014`))
+
+datatable(balanceSheet, options = list(pageLength = 50))
+datatable(profAndLoss, options = list(pageLength = 50))
+```
+
+Vraag 2 -  Met hoeveel procent daalt het bedrijfsresultaat over 2015 als de omzet 1 % lager zou zijn geweest. Ga er hierbij vanuit dat alleen de kostprijs verkopen variabele kosten zijn en de marge als percentage gelijk blijft.
+
+```{r}
+brutoMarge <- profAndLoss$`2015`[1] - profAndLoss$`2015`[2]
+g <- -0.01
+d_bruto <- brutoMarge * g
+perc_d_ebit <- d_bruto / profAndLoss$`2015`[8]
+perc_d_ebit
+```
+
+Geeft de verhouding tussen de vlottende activa en de vlottende passiva een indicatie voor een mogelijk liquiditeitstekort?
+
+```{r}
+cr <- balanceSheet$`2015`[14] / balanceSheet$`2015`[22]
+cr
+kr_termijn_cr <- 365 * balanceSheet$`2015`[18]/profAndLoss$`2015`[2]
+kr_termijn_cr
+```
+

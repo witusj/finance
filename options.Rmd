@@ -16,19 +16,14 @@ option_prm <- function(S, X, t, r, sigma, put = FALSE) {
 
 f <- 1 - put * 2
 u <- 1/(sigma*t^0.5)
-# cat("u:", u, "\n")
 
 v <- log(S/X)
-# cat("v:", v, "\n")
 
 x <- (r + sigma^2 / 2) * t
-# cat("x:", x, "\n")
 
 d1 <- u * (v + x)
-# cat("d1:", d1, "\n", pnorm(d1), "\n")
 
 d2 <- d1 - (1/u)
-# cat("d2:", d2, "\n", pnorm(d2), "\n")
 
 C <- f * pnorm(f * d1) * S - f * pnorm(f * d2) *  X * exp(-1 * r * t)
 
@@ -42,11 +37,12 @@ t <- 90/365
 r <- 0.05
 sigma <- 0.1
 
-call_spot <- data.frame(spot = seq(S-10, S+10, by=0.1)) %>% mutate(call_value = option_prm(S = spot, X = X, t = t, r = r, sigma = sigma, put = FALSE))
+call_spot <- data.frame(spot = seq(S-10, S+10, by=0.1)) %>% mutate(call_value = option_prm(S = spot, X = X, t = t, r = r, sigma = sigma, put = FALSE), lbound = (spot > X) * (spot - X))
 
 n <- ggplot(call_spot) +
-  geom_line(aes(x = spot, y = call_value), color = "orange")
-ggplotly(n)
+  geom_line(aes(x = spot, y = call_value), color = "skyblue") +
+  geom_line(aes(x = spot, y = lbound), color = "tomato")
+ggplotly(n, width = 800)
 
 option_prm(S = S, X = X, t = t, r = r, sigma = sigma, put = TRUE)
 ```
@@ -79,11 +75,11 @@ put_pay <- pay_off_vals(premium = put_prm, S = S, X = X, put = TRUE)
 put_call <- data.frame(spot = call_pay$x, call = call_pay$y, put = put_pay$y) %>% mutate(call_minus_put = call - put)
 
 p <- ggplot(put_call) +
-  geom_line(aes(x = spot, y = call), color = "green") +
-  geom_line(aes(x = spot, y = -put), color = "red") +
-  geom_line(aes(x = spot, y = call_minus_put), color = "blue") +
+  geom_line(aes(x = spot, y = call), color = "steelblue") +
+  geom_line(aes(x = spot, y = -put), color = "tomato") +
+  geom_line(aes(x = spot, y = call_minus_put), color = "turquoise") +
   xlab("spot") + ylab("pay off")
-ggplotly(p)
+ggplotly(p, width = 800)
 
 X - X * exp(-1 * r * t)
 ```
@@ -92,7 +88,7 @@ X - X * exp(-1 * r * t)
 
 ```{r}
 S <- 42
-X <- 42
+X <- 45
 t <- 365/365
 r <- 0.05
 sigma <- 0.1
@@ -101,6 +97,6 @@ C <- option_prm(S=S, X=X, t=t, r=r, sigma=sigma)
 P <- option_prm(S=S, X=X, t=t, r=r, sigma=sigma, put=TRUE)
 X_PV <- X*exp(-r*t)
 
-C + X_PV - P
+cat("C =", C, ", P =", P, ", X_PV =", X_PV, "=> C + X_PV - P =", C + X_PV - P, "= S")
 ```
 

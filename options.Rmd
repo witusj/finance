@@ -1,6 +1,8 @@
 ---
 title: "Options"
-output: html_notebook
+output: 
+  html_notebook: 
+    theme: united
 ---
 
 # Black and Scholes option model

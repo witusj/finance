@@ -18,6 +18,7 @@ knitr::opts_chunk$set(echo = FALSE)
 - Operating Cash Flows
 - Verandering Nettowerkkapitaal
 - Investering
+- [Oefening](https://drive.google.com/open?id=0B63Xv-VjVpxSZmpxbXh4NnVvd0k)
 
 ## Werkcollege 3 - Risico
 
